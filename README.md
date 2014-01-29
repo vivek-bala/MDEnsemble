@@ -15,7 +15,7 @@ BigJobAsync Installation
 
 To install BigJobAsync follow the instructions on 
 
-```bash
+```
 https://github.com/oleweidner/BigJobAsync/
 ```
 
@@ -23,7 +23,7 @@ Adding a Resource
 ==================
 
 The resource dictionary is a set of configurations for different possible resources that might be used. 
-```bash
+```
 https://github.com/oleweidner/BigJobAsync/blob/master/bigjobasync/resource_dictionary.py
 ```
 
@@ -36,8 +36,8 @@ Configuration file
 ==================
 
 This is the primary configuration file that needs to modified by the user.
-```bash
-https://bitbucket.org/vivek-balasubramanian/mdensembleapi/src/f0f6d5c6eccd51c94a0db422d1d88b3780e799aa/gromacs_bjasync/config.py?at=master
+```
+https://github.com/vivek-bala/MDAppKernel/blob/master/config.py
 ```
 
 Two set of details to be filled in - RESOURCE details and TASK details.
