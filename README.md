@@ -109,8 +109,21 @@ Running the example
 Running the example is quite simple. Most of the changes have to be made in the config file and the file to be executed 
 remains the same.
 
+Use the --help argument to view the possible arguments
 ```bash
-python example.py
+python example.py --help
 ```
+
+
+The config file, which contains the remote host configurations and task details, is a mandatory input. To run a environment check on the intended remote host, use the --checkenv argument
+```python example.py --config config.py --checkenv```
+
+
+To run a simple testjob (recommended), use the --testjob argument
+```python example.py --config config.py --testjob```
+
+
+To run the particular workload of your experiment. Setup the TASK definitions in the config file and use the --workload argument.
+```python example.py --config config.py --workload```
 
 
