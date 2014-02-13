@@ -5,13 +5,13 @@
 
 RESOURCE = {
         #Resource related inputs	--MANDATORY
-        'remote_host' : 'XSEDE.STAMPEDE',
-        'remote_directory' : '/home1/02734/vivek91/saga_gromacs/output/',
+        'remote_host' : 'FUTUREGRID.SIERRA',
+        'remote_directory' : '/N/u/vivek91/tryout/',
         'username' : 'vivek91',
-        'number_of_cores' : 2,
+        'number_of_cores' : 1,
         'resource_name' : "sierra:12cores",
         'project_id' : "TG-MCB090174",
-        'walltime' : 10
+        'walltime' : 30
     }
 
 TASK = {
@@ -22,14 +22,12 @@ TASK = {
         'output_directory' : "",
 
         #kernel/wrapper names
+        'kernel_type' : 'python',       #/bin/bash or python
         'app_kernel' : 'gromacs_run.py',
 
         #Resource requirement and number of tasks
         'cores_per_task' : 1,
         'number_of_tasks' : 2,
 
-        #Ensemble Parameters
-        'force_field' : '"amber03"',
-        'water_model' : 'none'
     }
 

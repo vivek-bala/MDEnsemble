@@ -1,7 +1,7 @@
 MDEnsemble API
 ============
 
-Provides an easy-to-use interface based on BigJobAsync and provides functional support to execute Molecular Dynamics simulations 
+Provides an easy-to-use interface based on BigJobAsync and provides functional support to execute Molecular Dynamics simulations using gromacs 
 
 
 Requirements
@@ -72,26 +72,20 @@ TASK DETAILS (example):-
 
 
 
-		'source_directory' : '/home/vivek/Research/Gromacs/',
-		'output_directory' : ".",
+		'source_directory' : '/home/vivek/Research/github_tests/EnsembleAPI3/gromacs_input_PYP/',
+        	'output_directory' : "",
 
-		'pdbfile' : 'aladip.pdb',
-		'emfile' : 'em.mdp',
-		'runfile' : 'run.mdp',
-		'app_kernel' : 'gromacs_python_wrapper.py',
+		'kernel_type' : 'python',       
+        	'app_kernel' : 'gromacs_run.py',
 		
 		'cores_per_task' : 1,
 		'number_of_tasks' : 2,
-	
-		'force_field' : '"amber03"',
-		'water_model' : 'none'
+
 
 
 source_directory - Path at localhost from where files need to be transferred
 
 output_directory - Path at localhost where output files need to be transferred
-
-pdbfile,emfile,runfile - Input filenames for the ensemble member
 
 app_kernel_ - Filename of the python wrapper(placed in the gromacs_bjasync folder)
 
@@ -99,7 +93,6 @@ cores_per_task - Number of cores to be allocated to eack task
 
 number_of_tasks - Number of ensemble members
 
-force_field, water_model - Input parameters for the ensemble
 
 
 

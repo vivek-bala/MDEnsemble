@@ -201,6 +201,11 @@ class simple:
         self.data_transfer_task.register_callbacks(task_cb)
         self.all_tasks.append(self.data_transfer_task)
 
+        self.remote_host.schedule_tasks(self.all_tasks)
+        # Wait for the Resource allocation to finish
+        self.remote_host.wait()
+
+        self.all_tasks = []
         #Aggregate all input files to be linked with gromacs task
         input_to_gromacs_task = []
         for f in inputfiles:
@@ -215,7 +220,7 @@ class simple:
             self.gromacs_task = bigjobasync.Task(
                 name        = "gromacs-task-%s" % i,
                 cores       = self.task_info['cores_per_task'],
-                executable  = "python",
+                executable  = self.task_info['kernel_type'],
                 arguments   = [self.task_info['app_kernel']],
                 input = input_to_gromacs_task,
                 output = [
@@ -237,13 +242,13 @@ class simple:
             self.all_tasks.append(self.gromacs_task)
 
         # Submit all tasks to remote_host
-        #t1=time.time()
+        t1=time.time()
         self.remote_host.schedule_tasks(self.all_tasks)
 
         # Wait for the Resource allocation to finish
         self.remote_host.wait()
-        #print(self.remote_host.resource_name())
-        #t2 = time.time()
+        print(self.remote_host.resource_name())
+        t2 = time.time()
         print('All tasks completed')
 
         return (t2-t1)
